@@ -23,7 +23,7 @@ public class Main {
         int qty;
         double price=0;
 
-        public double price() {
+        private double price() {
             double inputPrice;
             while(true){
                 Scanner sc = new Scanner(System.in);
@@ -42,16 +42,17 @@ public class Main {
             return price;
         }
 
-        public String declension(double sum) {
+        private String declension(double sum) {
             sum = Math.floor(sum);
             for(int i=11; i<=14; i++) {
-                if((sum-i)%100 == 0) {
+                if ((sum - i) % 100 == 0) {
                     return " рублей.";
-                } else if(sum%10 ==1) {
-                    return " рубль.";
-                } else if(sum%10 ==2 || sum%10==3 || sum%10== 4) {
-                    return " рубля.";
                 }
+            }
+            if(sum%10 ==1) {
+                return " рубль.";
+            } else if(sum%10 ==2 || sum%10==3 || sum%10== 4) {
+                return " рубля.";
             }
             return " рублей.";
         }
